@@ -9,6 +9,7 @@
 - HTML5, Javascript
 - CSS3
 - Linters
+- Webpack
 
 ## Live Demo
 
