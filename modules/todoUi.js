@@ -1,5 +1,5 @@
-import refresh from './assets/images/refresh.jpg';
-import enterArrow from './assets/images/arrow.png';
+import refresh from '../assets/images/refresh.jpg'
+import enterArrow from '../assets/images/arrow.png'
 
 const todoUI = () => `
 <div class="title">
@@ -21,6 +21,6 @@ placeholder="Add to your list..."
 <div class="clear"> 
 <p> Clear all completed </p>
 </div>
-`;
+`
 
-export default todoUI;
+export default todoUI

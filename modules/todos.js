@@ -1,4 +1,4 @@
-import dots from './assets/images/dots.png';
+import dots from '../assets/images/dots.png';
 
 class Todo {
   constructor(description, completed, index) {
