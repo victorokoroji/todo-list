@@ -8,6 +8,8 @@
 
 :root {
   --gray-white: #f2f1f1;
+  --white: #fff;
+  --gray: #817f7f;
 }
 
 html {
@@ -32,7 +34,7 @@ main {
   width: 60%;
   margin: auto;
   box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.1), 5px 5px 5px rgba(0, 0, 0, 0.1);
-  background-color: white;
+  background-color: var(--white);
 }
 
 .title {
@@ -48,8 +50,17 @@ main {
   font-weight: 400;
 }
 
+span i {
+  color: var(--gray);
+  font-size: 15px;
+}
+
 .completed {
   text-decoration: line-through;
+}
+
+.down {
+  transform: rotate(90deg);
 }
 
 .form-element {
@@ -70,7 +81,7 @@ main {
 
 ::placeholder {
   font-style: italic;
-  color: #817f7f;
+  color: var(--gray);
   font-size: 17px;
 }
 
