@@ -13,7 +13,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://vickymarz.github.io/todo-list/)
+[Live Demo Link](https://vickymarz.github.io/todo-list/dist/)
 
 ## Getting Started
 To get a local copy up and running follow these simple example steps.
