@@ -11,3 +11,5 @@ document.querySelectorAll('.checkbox').forEach(checkbox => {
 })
 
 document.querySelector('.enter').addEventListener('click', todos.saveTodos)
+
+window.addEventListener('load', todos.populateTodos)
