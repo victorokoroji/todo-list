@@ -1,0 +1,21 @@
+*,
+::before,
+::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 18px;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+li {
+  list-style-type: none;
+}
