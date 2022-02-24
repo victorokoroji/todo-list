@@ -32,6 +32,7 @@ const saveTodos = e => {
 	const btnId = btnClass.split('-')
 	const id = parseInt(btnId[1], 10)
 	const taskList = document.querySelector(`#tasks-${id}`)
+	const task = document.querySelector(`#task-${id}`)
 	const saveEdit = document.querySelector(`.save-${id}`)
 	const deleteEdit = document.querySelector(`.delete-${id}`)
 	const inputId = document.querySelector(`#complete-${id}`)
@@ -39,6 +40,8 @@ const saveTodos = e => {
 	const edit = document.createElement('img')
 	edit.setAttribute('src', dots)
 	edit.classList.add('edit')
+  task.appendChild(edit)
+
 
 	existingTodos[id].description = inputId.value
 	localStorage.setItem('todos', JSON.stringify(existingTodos))
