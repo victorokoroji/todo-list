@@ -11,8 +11,10 @@ class Todo {
 }
 
 const deleteTodos = e => {
-	const removeBtn = e.target
-	const id = parseInt(removeBtn.id, 10)
+  const removeBtn = e.target
+  let btnClass = removeBtn.className
+  let btnId = btnClass.split('-')
+	const id = parseInt(btnId[1], 10)
 	let existingTodos = JSON.parse(localStorage.getItem('todos'))
 	existingTodos = existingTodos.filter((todos, index) => index !== id)
 	removeBtn.parentNode.remove()
@@ -23,8 +25,7 @@ const deleteTodos = e => {
 const saveTodos = e => {
 	const saveEditBtn = e.target
 	let existingTodos = JSON.parse(localStorage.getItem('todos'))
-
-	const item = document.querySelector(`#complete-${saveEditBtn.id}`)
+  console.log(saveEditBtn);
 	const taskList = document.querySelector(`#tasks-${saveEditBtn.id}`)
 	const saveEdit = document.querySelector(`.save-${saveEditBtn.id}`)
 	const deleteEdit = document.querySelector(`.delete-${saveEditBtn.id}`)
@@ -39,34 +40,40 @@ const saveTodos = e => {
 }
 
 const editTodos = e => {
-	const editInput = e.target
+  const editInput = e.target
+  const editBtn = document.getElementById(`${editInput.id}`)
 	const inputId = document.querySelector(`#complete-${editInput.id}`)
 	inputId.removeAttribute('readonly')
-	inputId.focus()
+  inputId.focus()
+  editBtn.remove()
 
 	const taskList = document.querySelector(`#tasks-${editInput.id}`)
-	taskList.classList.add('active')
-	const task = document.querySelector('.task')
+  taskList.classList.add('active')
+  
+	const task = document.querySelector(`#task-${editInput.id}`)
 
 	const save = document.createElement('img')
 	save.setAttribute('src', saveImg)
 	save.classList.add(`save-${editInput.id}`)
-	save.className += 'save'
 	task.appendChild(save)
 
 	const removeBtn = document.createElement('img')
-	removeBtn.setAttribute('src', removeIcon)
-	removeBtn.id = editInput.id
 	removeBtn.classList.add(`delete-${editInput.id}`)
+	removeBtn.setAttribute('src', removeIcon)
+	// removeBtn.id = editInput.id
 	task.appendChild(removeBtn)
 
-	const deleteEdit = document.querySelector(`.delete-${editInput.id}`)
+	// const deleteEdit = document.querySelector(`.delete-${editInput.id}`)
+	const saveEdit = document.querySelector(`.save-${editInput.id}`)
 
-	deleteEdit.addEventListener('click', deleteTodos)
+	// deleteEdit.addEventListener('click', deleteTodos)
+	saveEdit.addEventListener('click', saveTodos)
 
-	document.querySelectorAll('.save').forEach(e => {
-		e.addEventListener('click', saveTodos)
-	})
+  	document.querySelectorAll(`.delete-${editInput.id}`).forEach(e => {
+			e.addEventListener('click', deleteTodos)
+		})
+
+
 }
 
 const createTodos = () => {
@@ -83,11 +90,12 @@ const createTodos = () => {
 			taskList.id = `tasks-${index}`
 
 			task.classList.add('task')
+			task.id = `task-${index}`
+
 
 			const input = document.createElement('input')
 			input.type = 'checkbox'
 			input.classList.add('checkbox')
-			input.classList.add('.checkbox')
 
 			const item = document.createElement('input')
 			item.type = 'text'
@@ -113,6 +121,7 @@ const createTodos = () => {
 		document.querySelectorAll('.edit').forEach(e => {
 			e.addEventListener('click', editTodos)
 		})
+
 	} else {
 		document.querySelector('.todo-container').innerHTML = ''
 	}
@@ -127,14 +136,10 @@ const storeTodos = () => {
   
   if (inputTodo !== '') {
      	existingTodos.push(todo)
-
 			localStorage.setItem('todos', JSON.stringify(existingTodos))
 			document.querySelector('#description').value = ''
-
 			createTodos()
    }
-
-
 }
 
 export { storeTodos, createTodos }
