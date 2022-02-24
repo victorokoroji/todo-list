@@ -12,7 +12,6 @@ class Todo {
 
 const deleteTodos = e => {
 	const removeBtn = e.target
-
 	const id = parseInt(removeBtn.id, 10)
 	let existingTodos = JSON.parse(localStorage.getItem('todos'))
 	existingTodos = existingTodos.filter((todos, index) => index !== id)
@@ -21,26 +20,53 @@ const deleteTodos = e => {
 	createTodos()
 }
 
+const saveTodos = e => {
+	const saveEditBtn = e.target
+	let existingTodos = JSON.parse(localStorage.getItem('todos'))
+
+	const item = document.querySelector(`#complete-${saveEditBtn.id}`)
+	const taskList = document.querySelector(`#tasks-${saveEditBtn.id}`)
+	const saveEdit = document.querySelector(`.save-${saveEditBtn.id}`)
+	const deleteEdit = document.querySelector(`.delete-${saveEditBtn.id}`)
+	const inputId = document.querySelector(`#complete-${saveEditBtn.id}`)
+
+	existingTodos[saveEditBtn.id].description = inputId.value
+	localStorage.setItem('todos', JSON.stringify(existingTodos))
+	saveEdit.remove()
+	deleteEdit.remove()
+	taskList.classList.remove('active')
+	item.setAttribute('readonly', true)
+}
+
 const editTodos = e => {
 	const editInput = e.target
 	const inputId = document.querySelector(`#complete-${editInput.id}`)
-	console.log(inputId)
 	inputId.removeAttribute('readonly')
 	inputId.focus()
+
+	const taskList = document.querySelector(`#tasks-${editInput.id}`)
+	taskList.classList.add('active')
+	const task = document.querySelector('.task')
 
 	const save = document.createElement('img')
 	save.setAttribute('src', saveImg)
 	save.classList.add(`save-${editInput.id}`)
-	document.querySelector('.task').appendChild(save)
+	save.className += 'save'
+	task.appendChild(save)
 
-  let existingTodos = JSON.parse(localStorage.getItem('todos'))
-  let saveEdit = document.querySelector(`.save-${editInput.id}`)
-    saveEdit.addEventListener('click', () => {
-			existingTodos[editInput.id].description = inputId.value
-			localStorage.setItem('todos', JSON.stringify(existingTodos))
-			saveEdit.remove()
-		})
-	
+	const removeBtn = document.createElement('img')
+	removeBtn.setAttribute('src', removeIcon)
+	removeBtn.id = editInput.id
+	removeBtn.classList.add(`delete-${editInput.id}`)
+	task.appendChild(removeBtn)
+
+	const deleteEdit = document.querySelector(`.delete-${editInput.id}`)
+
+	deleteEdit.addEventListener('click', deleteTodos)
+
+	document.querySelectorAll('.save').forEach(e => {
+		e.addEventListener('click', saveTodos)
+	})
 }
 
 const createTodos = () => {
@@ -54,7 +80,8 @@ const createTodos = () => {
 			const task = document.createElement('div')
 
 			taskList.classList.add('tasks')
-			taskList.className += ` ${index}`
+			taskList.id = `tasks-${index}`
+
 			task.classList.add('task')
 
 			const input = document.createElement('input')
@@ -75,35 +102,12 @@ const createTodos = () => {
 			edit.classList.add('edit')
 			edit.id = index
 
-			const remove = document.createElement('img')
-			remove.setAttribute('src', removeIcon)
-			remove.id = index
-			remove.classList.add('delete')
-
 			todoContainer.appendChild(taskList)
 			taskList.appendChild(task)
 			task.appendChild(input)
 			task.appendChild(item)
 
-			task.appendChild(remove)
 			task.appendChild(edit)
-		})
-
-		document.querySelectorAll('.edit').forEach(btn => {
-			btn.addEventListener('click', () => {
-				document.querySelectorAll('.tasks').forEach(task => {
-					let myTask = task.className
-					myTask = myTask.split(' ')
-					let id = myTask[1]
-					if (id === btn.id) {
-						task.classList.toggle('active')
-					}
-				})
-			})
-		})
-
-		document.querySelectorAll('.delete').forEach(e => {
-			e.addEventListener('click', deleteTodos)
 		})
 
 		document.querySelectorAll('.edit').forEach(e => {
@@ -114,7 +118,7 @@ const createTodos = () => {
 	}
 }
 
-const saveTodos = () => {
+const storeTodos = () => {
 	let existingTodos = JSON.parse(localStorage.getItem('todos'))
 	existingTodos = existingTodos === null ? [] : existingTodos
 
@@ -129,4 +133,4 @@ const saveTodos = () => {
 	createTodos()
 }
 
-export { saveTodos, createTodos }
+export { storeTodos, createTodos }
