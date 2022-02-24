@@ -1,5 +1,5 @@
 import './style.css';
-import * as todos from './CRUD.js';
+import * as todos from '../modules/CRUD.js';
 
 document.querySelector('.enter').addEventListener('click', todos.storeTodos);
 
