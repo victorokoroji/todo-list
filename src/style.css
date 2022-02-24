@@ -10,6 +10,7 @@
   --gray-white: #f2f1f1;
   --white: #fff;
   --gray: #817f7f;
+  --yellow: #ffff0083;
 }
 
 html {
@@ -106,6 +107,10 @@ span i {
 .checkbox {
   width: 15px;
   height: 15px;
+}
+
+.active {
+  background-color: var(--yellow);
 }
 
 .clear {
