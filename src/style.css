@@ -63,6 +63,7 @@ span i {
 
 .down {
   transform: rotate(90deg);
+  cursor: pointer;
 }
 
 .form-element {
@@ -82,8 +83,9 @@ span i {
   outline: none;
 }
 
-.icons {
+.task img {
   display: inline;
+  cursor: pointer;
 }
 
 ::placeholder {

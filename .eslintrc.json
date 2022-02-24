@@ -15,6 +15,7 @@
     "no-param-reassign": "off",
     "eol-last": "off",
     "no-use-before-define": "off",
+    "no-return-assign": "off",
     "import/extensions": [ 1, {
       "js": "always", "json": "always"
     }]
