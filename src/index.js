@@ -1,6 +1,6 @@
 import './style.css';
-import * as todos from '../modules/todos.js';
+import * as todos from './crud.js';
 
-document.querySelector('.enter').addEventListener('click', todos.saveTodos);
+document.querySelector('.enter').addEventListener('click', todos.storeTodos);
 
-window.addEventListener('load', todos.populateTodos);
+window.addEventListener('load', todos.createTodos);
