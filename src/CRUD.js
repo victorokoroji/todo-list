@@ -36,11 +36,8 @@ const saveTodos = e => {
 	const saveEdit = document.querySelector(`.save-${id}`)
 	const deleteEdit = document.querySelector(`.delete-${id}`)
 	const inputId = document.querySelector(`#complete-${id}`)
-
-	const edit = document.createElement('img')
-	edit.setAttribute('src', dots)
-	edit.classList.add('edit')
-  task.appendChild(edit)
+  const editBtn = document.getElementById(`${id}`)
+  editBtn.style.display = 'block'
 
 
 	existingTodos[id].description = inputId.value
@@ -57,7 +54,8 @@ const editTodos = e => {
 	const inputId = document.querySelector(`#complete-${editInput.id}`)
 	inputId.removeAttribute('readonly')
 	inputId.focus()
-	editBtn.remove()
+	
+	editBtn.style.display='none'
 
 	const taskList = document.querySelector(`#tasks-${editInput.id}`)
 	taskList.classList.add('active')
