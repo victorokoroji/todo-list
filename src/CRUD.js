@@ -123,14 +123,18 @@ const storeTodos = () => {
 	existingTodos = existingTodos === null ? [] : existingTodos
 
 	const inputTodo = document.querySelector('#description').value
-	const todo = new Todo(inputTodo, false, existingTodos.length + 1)
+  const todo = new Todo(inputTodo, false, existingTodos.length + 1)
+  
+  if (inputTodo !== '') {
+     	existingTodos.push(todo)
 
-	existingTodos.push(todo)
+			localStorage.setItem('todos', JSON.stringify(existingTodos))
+			document.querySelector('#description').value = ''
 
-	localStorage.setItem('todos', JSON.stringify(existingTodos))
-	document.querySelector('#description').value = ''
+			createTodos()
+   }
 
-	createTodos()
+
 }
 
 export { storeTodos, createTodos }
