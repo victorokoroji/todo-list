@@ -43,6 +43,7 @@ main {
   justify-content: space-between;
   align-items: center;
   padding: 15px 10px;
+  padding-right: 15px;
   border-bottom: 2px solid var(--gray-white);
 }
 
@@ -73,11 +74,15 @@ span i {
   border-bottom: 2px solid var(--gray-white);
 }
 
-.form-element input {
+.form-element input, .item {
   width: 100%;
   padding: 10px;
   border: none;
   outline: none;
+}
+
+.icons {
+  display: inline;
 }
 
 ::placeholder {
@@ -87,10 +92,7 @@ span i {
 }
 
 .tasks {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 10px;
+  padding: 10px;
   border-bottom: 2px solid var(--gray-white);
 }
 
@@ -104,6 +106,13 @@ span i {
   padding: 0 10px;
 }
 
+.item {
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  background: none;
+}
+
 .checkbox {
   width: 15px;
   height: 15px;
@@ -112,6 +121,7 @@ span i {
 .active {
   background-color: var(--yellow);
 }
+
 
 .clear {
   background-color: var(--gray-white);

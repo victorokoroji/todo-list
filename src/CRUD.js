@@ -1,5 +1,6 @@
 import dots from '../assets/images/dots.png'
 import removeIcon from '../assets/images/delete.png'
+import saveImg from '../assets/images/save.jpeg'
 
 class Todo {
 	constructor(description, completed, index) {
@@ -11,12 +12,35 @@ class Todo {
 
 const deleteTodos = e => {
 	const removeBtn = e.target
+
 	const id = parseInt(removeBtn.id, 10)
 	let existingTodos = JSON.parse(localStorage.getItem('todos'))
 	existingTodos = existingTodos.filter((todos, index) => index !== id)
 	removeBtn.parentNode.remove()
 	localStorage.setItem('todos', JSON.stringify(existingTodos))
 	createTodos()
+}
+
+const editTodos = e => {
+	const editInput = e.target
+	const inputId = document.querySelector(`#complete-${editInput.id}`)
+	console.log(inputId)
+	inputId.removeAttribute('readonly')
+	inputId.focus()
+
+	const save = document.createElement('img')
+	save.setAttribute('src', saveImg)
+	save.classList.add(`save-${editInput.id}`)
+	document.querySelector('.task').appendChild(save)
+
+  let existingTodos = JSON.parse(localStorage.getItem('todos'))
+  let saveEdit = document.querySelector(`.save-${editInput.id}`)
+    saveEdit.addEventListener('click', () => {
+			existingTodos[editInput.id].description = inputId.value
+			localStorage.setItem('todos', JSON.stringify(existingTodos))
+			saveEdit.remove()
+		})
+	
 }
 
 const createTodos = () => {
@@ -28,21 +52,23 @@ const createTodos = () => {
 		existingTodos.forEach((todo, index) => {
 			const taskList = document.createElement('div')
 			const task = document.createElement('div')
-			const icons = document.createElement('div')
 
 			taskList.classList.add('tasks')
 			taskList.className += ` ${index}`
 			task.classList.add('task')
-			icons.classList.add('icons')
 
 			const input = document.createElement('input')
 			input.type = 'checkbox'
 			input.classList.add('checkbox')
-			input.id = 'complete'
 			input.classList.add('.checkbox')
 
-			const item = document.createElement('span')
+			const item = document.createElement('input')
+			item.type = 'text'
 			item.classList.add('item')
+			item.setAttribute('readonly', true)
+			item.value = `${todo.description}`
+			item.innerHTML = todo.description
+			item.id = `complete-${index}`
 
 			const edit = document.createElement('img')
 			edit.setAttribute('src', dots)
@@ -52,35 +78,37 @@ const createTodos = () => {
 			const remove = document.createElement('img')
 			remove.setAttribute('src', removeIcon)
 			remove.id = index
-
-			item.innerHTML = todo.description
+			remove.classList.add('delete')
 
 			todoContainer.appendChild(taskList)
 			taskList.appendChild(task)
-			taskList.appendChild(icons)
-			icons.appendChild(remove)
-			icons.appendChild(edit)
 			task.appendChild(input)
 			task.appendChild(item)
+
+			task.appendChild(remove)
+			task.appendChild(edit)
 		})
 
 		document.querySelectorAll('.edit').forEach(btn => {
 			btn.addEventListener('click', () => {
-        document.querySelectorAll('.tasks').forEach(task => {
-          let myTask = task.className
+				document.querySelectorAll('.tasks').forEach(task => {
+					let myTask = task.className
 					myTask = myTask.split(' ')
 					let id = myTask[1]
 					if (id === btn.id) {
-            task.classList.toggle('active')
-          }
+						task.classList.toggle('active')
+					}
 				})
 			})
 		})
 
 		document.querySelectorAll('.delete').forEach(e => {
 			e.addEventListener('click', deleteTodos)
-    })
-    
+		})
+
+		document.querySelectorAll('.edit').forEach(e => {
+			e.addEventListener('click', editTodos)
+		})
 	} else {
 		document.querySelector('.todo-container').innerHTML = ''
 	}
