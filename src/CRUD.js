@@ -8,13 +8,24 @@ class Todo {
   }
 }
 
-const populateTodos = () => {
+const deleteTodos = (e) => {
+  const removeBtn = e.target
+  const id = parseInt(removeBtn.id)
+	let existingTodos = JSON.parse(localStorage.getItem('todos'))
+	existingTodos = existingTodos.filter((todos, index) => index !== id)
+  localStorage.setItem('todos', JSON.stringify(existingTodos))
+  removeBtn.parentNode.remove()
+	createTodos()
+}
+
+const createTodos = () => {
   const existingTodos = JSON.parse(localStorage.getItem('todos'));
   if (existingTodos !== null && existingTodos.length > 0) {
     const todoContainer = document.querySelector('.todo-container');
     todoContainer.innerHTML = '';
 
     existingTodos.forEach((todo, index) => {
+
       const taskList = document.createElement('div');
       const task = document.createElement('div');
 
@@ -33,6 +44,7 @@ const populateTodos = () => {
       const edit = document.createElement('img');
       edit.setAttribute('src', dots);
       edit.id = index;
+      edit.classList.add('delete')
 
       item.innerHTML = todo.description;
 
@@ -42,6 +54,10 @@ const populateTodos = () => {
       task.appendChild(input);
       task.appendChild(item);
     });
+
+    document.querySelectorAll('.delete').forEach(e => {
+      e.addEventListener('click', deleteTodos)
+    })
   } else {
     document.querySelector('.todo-container').innerHTML = '';
   }
@@ -59,7 +75,7 @@ const saveTodos = () => {
   localStorage.setItem('todos', JSON.stringify(existingTodos));
   document.querySelector('#description').value = '';
 
-  populateTodos();
+  createTodos();
 };
 
-export { saveTodos, populateTodos };
+export { saveTodos, createTodos };
