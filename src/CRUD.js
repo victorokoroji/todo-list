@@ -16,14 +16,12 @@ const deleteTodos = e => {
 	let btnId = btnClass.split('-')
 	const id = parseInt(btnId[1], 10)
 	let existingTodos = JSON.parse(localStorage.getItem('todos'))
-	existingTodos = existingTodos.filter((todos, index) => {
-		if (index !== id) {
-			todo[index] = index - 1
-			removeBtn.parentNode.remove()
-			localStorage.setItem('todos', JSON.stringify(existingTodos))
-			createTodos()
-		}
-	})
+	existingTodos = existingTodos.filter((todos, index) => index !== id)
+	console.log(existingTodos[id])
+	existingTodos[id].index = existingTodos.length
+	removeBtn.parentNode.remove()
+	localStorage.setItem('todos', JSON.stringify(existingTodos))
+	createTodos()
 }
 
 const saveTodos = e => {
@@ -40,7 +38,6 @@ const saveTodos = e => {
 	const edit = document.createElement('img')
 	edit.setAttribute('src', dots)
 	edit.classList.add('edit')
-	edit.id = index
 
 	existingTodos[id].description = inputId.value
 	localStorage.setItem('todos', JSON.stringify(existingTodos))
