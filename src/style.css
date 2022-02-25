@@ -75,8 +75,7 @@ span i {
   border-bottom: 2px solid var(--gray-white);
 }
 
-.form-element input,
-.item {
+.form-element input {
   width: 100%;
   padding: 10px;
   border: none;
@@ -112,6 +111,9 @@ span i {
 
 .item {
   margin-left: 10px;
+  background: none;
+  width: 100%;
+  padding: 10px;
   border: none;
   outline: none;
   background: none;

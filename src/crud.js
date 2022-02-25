@@ -46,7 +46,9 @@ const saveTodos = (e) => {
   const deleteEdit = document.querySelector(`.delete-${id}`);
   const inputId = document.querySelector(`#complete-${id}`);
   const editBtn = document.getElementById(`${id}`);
+
   editBtn.style.display = 'block';
+  inputId.style.outline = 'none'
 
   existingTodos[id].description = inputId.value;
   localStorage.setItem('todos', JSON.stringify(existingTodos));
@@ -82,6 +84,8 @@ const editTodos = (e) => {
   inputId.focus();
 
   editBtn.style.display = 'none';
+  inputId.style.outline = 'auto';
+  inputId.style.outlineColor = 'gray'
 
   const taskList = document.querySelector(`#tasks-${editInput.id}`);
   taskList.classList.add('active');
