@@ -6,4 +6,3 @@ document.querySelector('form').addEventListener('submit', todos.storeTodos);
 document.querySelector('button').addEventListener('click', todos.clearCompletedTodos);
 
 window.addEventListener('load', todos.createTodos);
-window.addEventListener('load', todos.persistChecked);
