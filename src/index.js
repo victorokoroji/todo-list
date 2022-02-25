@@ -3,6 +3,7 @@ import * as todos from './crud.js';
 
 document.querySelector('.enter').addEventListener('click', todos.storeTodos);
 document.querySelector('form').addEventListener('submit', todos.storeTodos);
-// document.querySelector('clear').addEventListener('submit', todos.deleteCompletedTodos);
+document.querySelector('button').addEventListener('click', todos.clearCompletedTodos);
 
 window.addEventListener('load', todos.createTodos);
+window.addEventListener('load', todos.persistChecked);

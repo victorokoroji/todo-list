@@ -23,17 +23,33 @@ const deleteTodos = e => {
 	createTodos()
 }
 
-// const deleteCompletedTodos = () => {
-//   const existingTodos = JSON.parse(localStorage.getItem('todos'));
-//   existingTodos = existingTodos.filter(todos => {
-//     if (todos.completed === true) {
-//       const deleteCompleted = todos.index
-//       const inputId = document.querySelector(`#checkbox-${deleteCompleted}`)
-//       inputId.parentNode.remove()
-//        localStorage.setItem('todos', JSON.stringify(existingTodos))
-//     }
-//   })
-// }
+const clearCompletedTodos = () => {
+	const completed = document.querySelectorAll('input:checked')
+	let existingTodos = JSON.parse(localStorage.getItem('todos'))
+	existingTodos = existingTodos.filter(todos => todos.completed === false)
+	if (completed) {
+		completed.forEach((elem, index) => {
+			const id = parseInt(index, 10)
+			document.querySelector(`#tasks-${id}`).remove()
+		})
+	}
+	localStorage.setItem('todos', JSON.stringify(existingTodos))
+}
+
+const persistChecked = () => {
+  const completed = document.querySelectorAll('input:checked')
+  console.log(completed);
+	let existingTodos = JSON.parse(localStorage.getItem('todos'))
+	existingTodos.forEach(todos => {
+    if (todos.completed === true && completed === !completed) {
+      	completed.forEach((elem, index) => {
+					const id = parseInt(index, 10)
+					document.querySelector(`#complete-${index}`).style.textDecoration = 'line-through'
+				})
+		}
+	})
+}
+
 
 const saveTodos = e => {
 	const saveBtn = e.target
@@ -58,7 +74,7 @@ const saveTodos = e => {
 	inputId.setAttribute('readonly', true)
 }
 
-const completeTodos = e => {
+const completedTodos = e => {
 	const checkbox = e.target
 	let btnId = checkbox.id
 	btnId = btnId.split('-')
@@ -67,12 +83,12 @@ const completeTodos = e => {
 	const existingTodos = JSON.parse(localStorage.getItem('todos'))
 	if (checkbox.checked) {
 		existingTodos[id].completed = true
-    inputId.style.textDecoration = 'line-through'
+		inputId.style.textDecoration = 'line-through'
 		localStorage.setItem('todos', JSON.stringify(existingTodos))
 	} else {
 		inputId.style.textDecoration = 'none'
-    existingTodos[id].completed = false
-    localStorage.setItem('todos', JSON.stringify(existingTodos))
+		existingTodos[id].completed = false
+		localStorage.setItem('todos', JSON.stringify(existingTodos))
 	}
 }
 
@@ -150,17 +166,19 @@ const createTodos = () => {
 			task.appendChild(item)
 
 			task.appendChild(edit)
+
 		})
 
 		document.querySelectorAll('.edit').forEach(e => {
-			e.addEventListener('click', editTodos)
+      e.addEventListener('click', editTodos)
 		})
 
 		document.querySelectorAll('.checkbox').forEach(e => {
-			e.addEventListener('click', completeTodos)
-		})
+			e.addEventListener('change', completedTodos)
+    })
+    
 	} else {
-		document.querySelector('.todo-container').innerHTML = ''
+    document.querySelector('.todo-container').innerHTML = ''
 	}
 }
 
@@ -180,4 +198,4 @@ const storeTodos = e => {
 	}
 }
 
-export { storeTodos, createTodos }
+export { storeTodos, createTodos, clearCompletedTodos, persistChecked }

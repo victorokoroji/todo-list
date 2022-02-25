@@ -129,11 +129,18 @@ span i {
 }
 
 .clear {
-  background-color: var(--gray-white);
   display: flex;
-  color: #817f7f;
   font-weight: lighter;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+}
+
+.button {
+  background-color: var(--gray-white);
+  cursor: pointer;
+  border: none;
+  display: block;
+  width: 100%;
+   color: #817f7f;
+    padding: 20px 0;
 }
