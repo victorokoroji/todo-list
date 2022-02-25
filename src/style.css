@@ -10,7 +10,7 @@
   --gray-white: #f2f1f1;
   --white: #fff;
   --gray: #817f7f;
-  --yellow: #ffff0083;
+  --yellow: #ffff006b;
 }
 
 html {
@@ -81,6 +81,7 @@ span i {
   padding: 10px;
   border: none;
   outline: none;
+  background: none;
 }
 
 .task img {

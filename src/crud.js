@@ -23,6 +23,18 @@ const deleteTodos = (e) => {
   createTodos();
 };
 
+// const deleteCompletedTodos = () => {
+//   const existingTodos = JSON.parse(localStorage.getItem('todos'));
+//   existingTodos = existingTodos.filter(todos => {
+//     if (todos.completed === true) {
+//       const deleteCompleted = todos.index
+//       const inputId = document.querySelector(`#checkbox-${deleteCompleted}`)
+//       inputId.parentNode.remove()
+//        localStorage.setItem('todos', JSON.stringify(existingTodos))
+//     }
+//   })
+// }
+
 const saveTodos = (e) => {
   const saveBtn = e.target;
   const existingTodos = JSON.parse(localStorage.getItem('todos'));
@@ -43,6 +55,24 @@ const saveTodos = (e) => {
   taskList.classList.remove('active');
   inputId.setAttribute('readonly', true);
 };
+
+// const completeTodos = (e) => {
+//   const checkbox = e.target
+//   let btnId = checkbox.id;
+//   btnId = btnId.split('-');
+//   const id = parseInt(btnId[1], 10);
+//   const inputId = document.querySelector(`#checkbox-${id}`);
+//   const existingTodos = JSON.parse(localStorage.getItem('todos'));
+//   if(checkbox.checked) {
+//     existingTodos[id].completed = true;
+//     localStorage.setItem('todos', JSON.stringify(existingTodos));
+//     inputId.style.textDecoration = 'line-through'
+//   } else {
+//      inputId.style.textDecoration = 'none'
+//       existingTodos[id].completed = false;
+//   }
+
+// }
 
 const editTodos = (e) => {
   const editInput = e.target;
@@ -96,13 +126,13 @@ const createTodos = () => {
       const input = document.createElement('input');
       input.type = 'checkbox';
       input.classList.add('checkbox');
-
+      input.id = `checkbox-${index}`
+      
       const item = document.createElement('input');
       item.type = 'text';
       item.classList.add('item');
       item.setAttribute('readonly', true);
       item.value = `${todo.description}`;
-      item.innerHTML = todo.description;
       item.id = `complete-${index}`;
 
       const edit = document.createElement('img');
@@ -121,12 +151,18 @@ const createTodos = () => {
     document.querySelectorAll('.edit').forEach((e) => {
       e.addEventListener('click', editTodos);
     });
+
+    document.querySelectorAll('.checkbox').forEach((e) => {
+      e.addEventListener('click', completeTodos);
+    });
+
   } else {
     document.querySelector('.todo-container').innerHTML = '';
   }
 };
 
-const storeTodos = () => {
+const storeTodos = (e) => {
+  e.preventDefault()
   let existingTodos = JSON.parse(localStorage.getItem('todos'));
   existingTodos = existingTodos === null ? [] : existingTodos;
 
@@ -141,4 +177,4 @@ const storeTodos = () => {
   }
 };
 
-export { storeTodos, createTodos };
+export { storeTodos, createTodos }
