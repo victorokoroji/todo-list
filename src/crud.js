@@ -33,6 +33,7 @@ const clearCompletedTodos = () => {
       document.querySelector(`#tasks-${id}`).remove();
     });
   }
+  existingTodos.forEach((task, i) => (task.index = i + 1));
   localStorage.setItem('todos', JSON.stringify(existingTodos));
 };
 

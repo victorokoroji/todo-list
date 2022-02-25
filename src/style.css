@@ -116,7 +116,6 @@ span i {
   padding: 10px;
   border: none;
   outline: none;
-  background: none;
 }
 
 .checkbox {
@@ -141,6 +140,6 @@ span i {
   border: none;
   display: block;
   width: 100%;
-   color: #817f7f;
-    padding: 20px 0;
+  color: #817f7f;
+  padding: 20px 0;
 }
