@@ -26,13 +26,13 @@ const deleteTodos = (e) => {
 const clearCompletedTodos = () => {
   const completed = document.querySelectorAll('input:checked');
   let existingTodos = JSON.parse(localStorage.getItem('todos'));
-  existingTodos = existingTodos.filter((todos) => todos.completed === false);
   if (completed) {
     completed.forEach((elem, index) => {
-      const id = parseInt(index, 10);
-      document.querySelector(`#tasks-${id}`).remove();
+      const task = elem.parentNode
+      task.parentNode.remove()
     });
   }
+  existingTodos = existingTodos.filter((todos) => todos.completed === false);
   existingTodos.forEach((task, i) => (task.index = i + 1));
   localStorage.setItem('todos', JSON.stringify(existingTodos));
 };
@@ -72,8 +72,8 @@ const completedTodos = (e) => {
     inputId.style.textDecoration = 'line-through';
     localStorage.setItem('todos', JSON.stringify(existingTodos));
   } else {
-    inputId.style.textDecoration = 'none';
     existingTodos[id].completed = false;
+    inputId.style.textDecoration = 'none';
     localStorage.setItem('todos', JSON.stringify(existingTodos));
   }
 };
