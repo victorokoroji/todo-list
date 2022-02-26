@@ -10,7 +10,7 @@
   --gray-white: #f2f1f1;
   --white: #fff;
   --gray: #817f7f;
-  --yellow: #ffff0083;
+  --yellow: #ffff006b;
 }
 
 html {
@@ -75,12 +75,12 @@ span i {
   border-bottom: 2px solid var(--gray-white);
 }
 
-.form-element input,
-.item {
+.form-element input {
   width: 100%;
   padding: 10px;
   border: none;
   outline: none;
+  background: none;
 }
 
 .task img {
@@ -111,9 +111,11 @@ span i {
 
 .item {
   margin-left: 10px;
+  background: none;
+  width: 100%;
+  padding: 10px;
   border: none;
   outline: none;
-  background: none;
 }
 
 .checkbox {
@@ -126,11 +128,18 @@ span i {
 }
 
 .clear {
-  background-color: var(--gray-white);
   display: flex;
-  color: #817f7f;
   font-weight: lighter;
   justify-content: center;
   align-items: center;
+}
+
+.button {
+  background-color: var(--gray-white);
+  cursor: pointer;
+  border: none;
+  display: block;
+  width: 100%;
+  color: #817f7f;
   padding: 20px 0;
 }

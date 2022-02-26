@@ -23,6 +23,20 @@ const deleteTodos = (e) => {
   createTodos();
 };
 
+const clearCompletedTodos = () => {
+  const completed = document.querySelectorAll('input:checked');
+  let existingTodos = JSON.parse(localStorage.getItem('todos'));
+  if (completed) {
+    completed.forEach((elem) => {
+      const task = elem.parentNode;
+      task.parentNode.remove();
+    });
+  }
+  existingTodos = existingTodos.filter((todos) => todos.completed === false);
+  existingTodos.forEach((task, i) => (task.index = i + 1));
+  localStorage.setItem('todos', JSON.stringify(existingTodos));
+};
+
 const saveTodos = (e) => {
   const saveBtn = e.target;
   const existingTodos = JSON.parse(localStorage.getItem('todos'));
@@ -34,7 +48,9 @@ const saveTodos = (e) => {
   const deleteEdit = document.querySelector(`.delete-${id}`);
   const inputId = document.querySelector(`#complete-${id}`);
   const editBtn = document.getElementById(`${id}`);
+
   editBtn.style.display = 'block';
+  inputId.style.outline = 'none';
 
   existingTodos[id].description = inputId.value;
   localStorage.setItem('todos', JSON.stringify(existingTodos));
@@ -42,6 +58,24 @@ const saveTodos = (e) => {
   deleteEdit.remove();
   taskList.classList.remove('active');
   inputId.setAttribute('readonly', true);
+};
+
+const completedTodos = (e) => {
+  const checkbox = e.target;
+  let btnId = checkbox.id;
+  btnId = btnId.split('-');
+  const id = parseInt(btnId[1], 10);
+  const inputId = document.querySelector(`#complete-${id}`);
+  const existingTodos = JSON.parse(localStorage.getItem('todos'));
+  if (checkbox.checked) {
+    existingTodos[id].completed = true;
+    inputId.style.textDecoration = 'line-through';
+    localStorage.setItem('todos', JSON.stringify(existingTodos));
+  } else {
+    existingTodos[id].completed = false;
+    inputId.style.textDecoration = 'none';
+    localStorage.setItem('todos', JSON.stringify(existingTodos));
+  }
 };
 
 const editTodos = (e) => {
@@ -52,6 +86,8 @@ const editTodos = (e) => {
   inputId.focus();
 
   editBtn.style.display = 'none';
+  inputId.style.outline = 'auto';
+  inputId.style.outlineColor = 'gray';
 
   const taskList = document.querySelector(`#tasks-${editInput.id}`);
   taskList.classList.add('active');
@@ -96,13 +132,13 @@ const createTodos = () => {
       const input = document.createElement('input');
       input.type = 'checkbox';
       input.classList.add('checkbox');
+      input.id = `checkbox-${index}`;
 
       const item = document.createElement('input');
       item.type = 'text';
       item.classList.add('item');
       item.setAttribute('readonly', true);
       item.value = `${todo.description}`;
-      item.innerHTML = todo.description;
       item.id = `complete-${index}`;
 
       const edit = document.createElement('img');
@@ -121,12 +157,17 @@ const createTodos = () => {
     document.querySelectorAll('.edit').forEach((e) => {
       e.addEventListener('click', editTodos);
     });
+
+    document.querySelectorAll('.checkbox').forEach((e) => {
+      e.addEventListener('change', completedTodos);
+    });
   } else {
     document.querySelector('.todo-container').innerHTML = '';
   }
 };
 
-const storeTodos = () => {
+const storeTodos = (e) => {
+  e.preventDefault();
   let existingTodos = JSON.parse(localStorage.getItem('todos'));
   existingTodos = existingTodos === null ? [] : existingTodos;
 
@@ -141,4 +182,4 @@ const storeTodos = () => {
   }
 };
 
-export { storeTodos, createTodos };
+export { storeTodos, createTodos, clearCompletedTodos };
