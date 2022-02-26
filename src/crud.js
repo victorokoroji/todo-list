@@ -27,9 +27,9 @@ const clearCompletedTodos = () => {
   const completed = document.querySelectorAll('input:checked');
   let existingTodos = JSON.parse(localStorage.getItem('todos'));
   if (completed) {
-    completed.forEach((elem, index) => {
-      const task = elem.parentNode
-      task.parentNode.remove()
+    completed.forEach((elem) => {
+      const task = elem.parentNode;
+      task.parentNode.remove();
     });
   }
   existingTodos = existingTodos.filter((todos) => todos.completed === false);
