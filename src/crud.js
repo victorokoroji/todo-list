@@ -180,7 +180,10 @@ const storeTodos = (e) => {
     document.querySelector('#description').value = '';
     createTodos();
   } else {
-      document.querySelector('.notify').style.display = 'none'
+    document.querySelector('.notify').style.display = 'block'
+    setTimeout(() => {
+       document.querySelector('.notify').style.display = 'none'
+    }, 2000);
   }
 };
 
