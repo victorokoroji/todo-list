@@ -35,6 +35,8 @@ const clearCompletedTodos = () => {
   existingTodos = existingTodos.filter((todos) => todos.completed === false);
   existingTodos.forEach((task, i) => (task.index = i + 1));
   localStorage.setItem('todos', JSON.stringify(existingTodos));
+
+  if (existingTodos.length === 0) document.querySelector('.button').style.display = 'none';
 };
 
 const saveTodos = (e) => {
@@ -115,6 +117,7 @@ const editTodos = (e) => {
 
 const createTodos = () => {
   const existingTodos = JSON.parse(localStorage.getItem('todos'));
+
   if (existingTodos !== null && existingTodos.length > 0) {
     const todoContainer = document.querySelector('.todo-container');
     todoContainer.innerHTML = '';
@@ -150,8 +153,9 @@ const createTodos = () => {
       taskList.appendChild(task);
       task.appendChild(input);
       task.appendChild(item);
-
       task.appendChild(edit);
+
+      document.querySelector('.button').style.display = 'block';
     });
 
     document.querySelectorAll('.edit').forEach((e) => {
@@ -174,11 +178,16 @@ const storeTodos = (e) => {
   const inputTodo = document.querySelector('#description').value;
   const todo = new Todo(inputTodo, false, existingTodos.length + 1);
 
-  if (inputTodo !== '') {
+  if (inputTodo.trim() !== '') {
     existingTodos.push(todo);
     localStorage.setItem('todos', JSON.stringify(existingTodos));
     document.querySelector('#description').value = '';
     createTodos();
+  } else {
+    document.querySelector('.notify').style.display = 'block';
+    setTimeout(() => {
+      document.querySelector('.notify').style.display = 'none';
+    }, 5000);
   }
 };
 

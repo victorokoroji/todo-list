@@ -11,6 +11,8 @@
   --white: #fff;
   --gray: #817f7f;
   --yellow: #ffff006b;
+  --blue: #003b74;
+  --red: red;
 }
 
 html {
@@ -21,10 +23,23 @@ html {
 body {
   width: 100%;
   min-height: 100vh;
-  background-color: var(--gray-white);
+  background: url(../assets/images/download.jpeg) no-repeat;
+  background-size: cover;
+}
+
+header {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+header h1 {
+  font-size: 24px;
+  color: var(--white);
+  text-shadow: -10px 10px 10px rgba(255, 252, 252, 0.5);
+  font-family: 'Times New Roman', Times, serif;
 }
 
 li {
@@ -32,10 +47,22 @@ li {
 }
 
 main {
-  width: 60%;
+  margin-bottom: 90px;
+}
+
+.todolist-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  width: 80%;
   margin: auto;
-  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.1), 5px 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 5px rgba(238, 232, 232, 0.3);
   background-color: var(--white);
+  border-radius: 5px;
 }
 
 .title {
@@ -135,11 +162,68 @@ span i {
 }
 
 .button {
-  background-color: var(--gray-white);
+  background-color: rgb(0 59 116);
   cursor: pointer;
   border: none;
-  display: block;
   width: 100%;
-  color: #817f7f;
+  color: var(--white);
   padding: 20px 0;
+  display: none;
+}
+
+.instruction {
+  display: flex;
+  justify-content: center;
+  color: var(--white);
+  font-size: 0.7rem;
+  gap: 5px;
+  padding: 20px 10px;
+}
+
+.instruction i {
+  font-size: 0.6rem;
+  color: var(--red);
+  margin-top: -5px;
+  display: block;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  color: var(--white);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 20px;
+  background-color: var(--blue);
+}
+
+.notify {
+  color: var(--red);
+  margin-bottom: 10px;
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  header h1 {
+    font-size: 48px;
+  }
+
+  .wrapper {
+    width: 60%;
+  }
+
+  .instruction {
+    padding: 20px 0;
+    font-size: 0.9rem;
+  }
 }

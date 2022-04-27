@@ -4,30 +4,65 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta property="og:title" content="Todo App" />
+		<meta
+			name="image"
+			property="og:image"
+			content="https://awesometodos.netlify.app/images/capture.png"
+		/>
+		<meta
+			name="image"
+			property="og:image"
+			content="./images/capture.png"
+		/>
+		<meta name="author" content="Victor Ebube Okoroji" />
+		<meta
+			property="og:description"
+			content="Todo App is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete."
+		/>
+		<meta property="og:url" content="https://awesometodos.netlify.app/" />
+		<!-- favicon -->
+		<link rel="icon" href="favicon.ico" />
+		<!-- fontawesome -->
 		<script src="https://kit.fontawesome.com/d31edfa6bf.js" crossorigin="anonymous"></script>
 		<title> Todo List </title>
 	</head>
 	<body>
-		<main class="main">
-			<div class="title">
-				<h3>Today's To Do</h3>
-				<span> <i class="fa fa-refresh"></i> </span>
-			</div>
-			<form class="form-element">
-				<input
-					type="text"
-					id="description"
-					name="description"
-					class="input"
-					placeholder="Add to your list..."
-					required
-				/>
-				<span class="enter"> <i class="fa fa-level-down down"></i></span>
-			</form>
-			<div class="todo-container"> </div>
-			<div class="clear">
-				<button type="button" class="button"> Clear all completed </button>
+		<header>
+			<h1>TODOs</h1>
+		</header>
+		<main>
+			<section class="todolist-section">
+				<small class="notify">You have not entered any text! Kindly add a todo.</small>
+				<div class="wrapper">
+					<div class="title">
+						<h3>Today's To Do</h3>
+						<span class="refresh"> <i class="fa fa-refresh"></i> </span>
+					</div>
+					<form class="form-element">
+						<input
+							type="text"
+							id="description"
+							name="description"
+							class="input"
+							placeholder="Add to your list here..."
+							required
+						/>
+						<span class="enter"> <i class="fa fa-level-down down"></i></span>
+					</form>
+					<div class="todo-container"> </div>
+					<div class="clear">
+						<button type="button" class="button"> Clear all completed </button>
+					</div>
+				</div>
+			</section>
+			<div class="instruction">
+				<i class="fas fa-asterisk"></i>
+				<p> When you add todos, you can click the three vertical dots to edit your todos.</p>
 			</div>
 		</main>
+		<footer>
+			<p>(c) 2022. App by Victor Okoroji</p>
+		</footer>
 	</body>
 </html>
