@@ -11,6 +11,7 @@
 	--white: #fff;
 	--gray: #817f7f;
 	--yellow: #ffff006b;
+  --blue: #003B74;
 }
 
 html {
@@ -176,4 +177,16 @@ span i {
   color: red;
   margin-top: -5px;
   display: block;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  color: var(--white);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 20px;
+  background-color: var(--blue);
 }
