@@ -14,7 +14,7 @@ module.exports = {
 			favicon: './assets/images/favicon.ico',
 		}),
 		new CopyPlugin({
-			patterns: [{ from: './assets/images/capture.png', to: 'dist' }],
+			patterns: [{ from: './assets/images/capture.png', to: 'images' }],
 		}),
 	],
 	output: {
