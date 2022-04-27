@@ -22,6 +22,7 @@ html {
 
 body {
 	width: 100%;
+	min-height: 100vh;
 	background: url(../assets/images/download.jpeg) no-repeat;
 	background-size: cover;
 }
@@ -57,7 +58,7 @@ main {
 }
 
 .wrapper {
-	width: 60%;
+	width: 90%;
 	margin: auto;
 	box-shadow: 5px 5px 5px rgba(238, 232, 232, 0.3);
 	background-color: var(--white);
@@ -175,9 +176,9 @@ span i {
 	display: flex;
 	justify-content: center;
 	color: var(--white);
-	font-size: 0.9rem;
-	margin: 20px 0;
+	font-size: 0.7rem;
 	gap: 5px;
+	padding: 20px 10px;
 }
 .instruction i {
 	font-size: 0.6rem;
@@ -204,16 +205,25 @@ footer {
 	display: none;
 }
 
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 768px) {
 	header {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-top: 50px;
-	margin-bottom: 50px;
-}
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
 
-header h1 {
-	font-size: 24px;
-}
+	header h1 {
+		font-size: 48px;
+	}
+
+	.wrapper {
+		width: 60%;
+	}
+
+	.instruction {
+		padding: 20px 0;
+		font-size: 0.9rem;
+	}
 }
