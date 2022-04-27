@@ -1,229 +1,229 @@
 *,
 ::before,
 ::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-	--gray-white: #f2f1f1;
-	--white: #fff;
-	--gray: #817f7f;
-	--yellow: #ffff006b;
-	--blue: #003b74;
-	--red: red;
+  --gray-white: #f2f1f1;
+  --white: #fff;
+  --gray: #817f7f;
+  --yellow: #ffff006b;
+  --blue: #003b74;
+  --red: red;
 }
 
 html {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
 }
 
 body {
-	width: 100%;
-	min-height: 100vh;
-	background: url(../assets/images/download.jpeg) no-repeat;
-	background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  background: url(../assets/images/download.jpeg) no-repeat;
+  background-size: cover;
 }
 
 header {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-top: 20px;
-	margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 header h1 {
-	font-size: 24px;
-	color: var(--white);
-	text-shadow: -10px 10px 10px rgba(255, 252, 252, 0.5);
-	font-family: 'Times New Roman', Times, serif;
+  font-size: 24px;
+  color: var(--white);
+  text-shadow: -10px 10px 10px rgba(255, 252, 252, 0.5);
+  font-family: 'Times New Roman', Times, serif;
 }
 
 li {
-	list-style-type: none;
+  list-style-type: none;
 }
 
 main {
-	margin-bottom: 90px;
+  margin-bottom: 90px;
 }
 
 .todolist-section {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .wrapper {
-	width: 80%;
-	margin: auto;
-	box-shadow: 5px 5px 5px rgba(238, 232, 232, 0.3);
-	background-color: var(--white);
-	border-radius: 5px;
+  width: 80%;
+  margin: auto;
+  box-shadow: 5px 5px 5px rgba(238, 232, 232, 0.3);
+  background-color: var(--white);
+  border-radius: 5px;
 }
 
 .title {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 15px 10px;
-	padding-right: 15px;
-	border-bottom: 2px solid var(--gray-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+  padding-right: 15px;
+  border-bottom: 2px solid var(--gray-white);
 }
 
 .title h3 {
-	font-size: 18px;
-	font-weight: 400;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 span i {
-	color: var(--gray);
-	font-size: 15px;
+  color: var(--gray);
+  font-size: 15px;
 }
 
 .completed {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .down {
-	transform: rotate(90deg);
-	cursor: pointer;
+  transform: rotate(90deg);
+  cursor: pointer;
 }
 
 .form-element {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px 0;
-	padding-right: 20px;
-	border-bottom: 2px solid var(--gray-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  padding-right: 20px;
+  border-bottom: 2px solid var(--gray-white);
 }
 
 .form-element input {
-	width: 100%;
-	padding: 10px;
-	border: none;
-	outline: none;
-	background: none;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background: none;
 }
 
 .task img {
-	display: inline;
-	cursor: pointer;
+  display: inline;
+  cursor: pointer;
 }
 
 ::placeholder {
-	font-style: italic;
-	color: var(--gray);
-	font-size: 17px;
+  font-style: italic;
+  color: var(--gray);
+  font-size: 17px;
 }
 
 .tasks {
-	padding: 10px;
-	border-bottom: 2px solid var(--gray-white);
+  padding: 10px;
+  border-bottom: 2px solid var(--gray-white);
 }
 
 .task {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .task span {
-	padding: 0 10px;
+  padding: 0 10px;
 }
 
 .item {
-	margin-left: 10px;
-	background: none;
-	width: 100%;
-	padding: 10px;
-	border: none;
-	outline: none;
+  margin-left: 10px;
+  background: none;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
 }
 
 .checkbox {
-	width: 15px;
-	height: 15px;
+  width: 15px;
+  height: 15px;
 }
 
 .active {
-	background-color: var(--yellow);
+  background-color: var(--yellow);
 }
 
 .clear {
-	display: flex;
-	font-weight: lighter;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  font-weight: lighter;
+  justify-content: center;
+  align-items: center;
 }
 
 .button {
-	background-color: rgb(0 59 116);
-	cursor: pointer;
-	border: none;
-	display: block;
-	width: 100%;
-	color: var(--white);
-	padding: 20px 0;
-	display: none;
+  background-color: rgb(0 59 116);
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  color: var(--white);
+  padding: 20px 0;
+  display: none;
 }
 
 .instruction {
-	display: flex;
-	justify-content: center;
-	color: var(--white);
-	font-size: 0.7rem;
-	gap: 5px;
-	padding: 20px 10px;
+  display: flex;
+  justify-content: center;
+  color: var(--white);
+  font-size: 0.7rem;
+  gap: 5px;
+  padding: 20px 10px;
 }
+
 .instruction i {
-	font-size: 0.6rem;
-	color: var(--red);
-	margin-top: -5px;
-	display: block;
+  font-size: 0.6rem;
+  color: var(--red);
+  margin-top: -5px;
+  display: block;
 }
 
 footer {
-	display: flex;
-	justify-content: center;
-	color: var(--white);
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	padding: 10px 0;
-	margin-top: 20px;
-	background-color: var(--blue);
+  display: flex;
+  justify-content: center;
+  color: var(--white);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 20px;
+  background-color: var(--blue);
 }
 
 .notify {
-	color: var(--red);
-	margin-bottom: 10px;
-	display: none;
+  color: var(--red);
+  margin-bottom: 10px;
+  display: none;
 }
 
 @media only screen and (min-width: 768px) {
-	header {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin-top: 50px;
-		margin-bottom: 50px;
-	}
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
 
-	header h1 {
-		font-size: 48px;
-	}
+  header h1 {
+    font-size: 48px;
+  }
 
-	.wrapper {
-		width: 60%;
-	}
+  .wrapper {
+    width: 60%;
+  }
 
-	.instruction {
-		padding: 20px 0;
-		font-size: 0.9rem;
-	}
+  .instruction {
+    padding: 20px 0;
+    font-size: 0.9rem;
+  }
 }
