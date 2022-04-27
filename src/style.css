@@ -34,8 +34,9 @@ header {
 
 header h1 {
   font-size: 48px;
-  color: rgb(102, 100, 100);
-  text-shadow: -10px 10px 10px rgba(0, 0, 0, 0.3)
+  color: var(--white);
+  text-shadow: -10px 10px 10px rgba(255, 252, 252, 0.5);
+  font-family: 'Times New Roman', Times, serif;
 }
 
 li {
