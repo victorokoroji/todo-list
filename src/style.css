@@ -168,6 +168,7 @@ span i {
 	width: 100%;
 	color: var(--white);
 	padding: 20px 0;
+	display: none;
 }
 
 .instruction {
