@@ -15,7 +15,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://vickymarz.github.io/todo-list/dist/)
+[Live Demo Link](https://awesometodos.netlify.app/)
 
 ## Getting Started
 

@@ -58,7 +58,7 @@ main {
 }
 
 .wrapper {
-	width: 90%;
+	width: 80%;
 	margin: auto;
 	box-shadow: 5px 5px 5px rgba(238, 232, 232, 0.3);
 	background-color: var(--white);
