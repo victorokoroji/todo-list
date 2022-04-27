@@ -174,11 +174,13 @@ const storeTodos = (e) => {
   const inputTodo = document.querySelector('#description').value;
   const todo = new Todo(inputTodo, false, existingTodos.length + 1);
 
-  if (inputTodo !== '') {
+  if (inputTodo.trim() !== '') {
     existingTodos.push(todo);
     localStorage.setItem('todos', JSON.stringify(existingTodos));
     document.querySelector('#description').value = '';
     createTodos();
+  } else {
+      document.querySelector('.notify').style.display = 'none'
   }
 };
 

@@ -12,6 +12,7 @@
 	--gray: #817f7f;
 	--yellow: #ffff006b;
 	--blue: #003b74;
+	--red: red;
 }
 
 html {
@@ -50,6 +51,7 @@ main {
 
 .todolist-section {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
@@ -159,12 +161,12 @@ span i {
 }
 
 .button {
-	background-color: var(--gray-white);
+	background-color: rgb(0 59 116);
 	cursor: pointer;
 	border: none;
 	display: block;
 	width: 100%;
-	color: #817f7f;
+	color: var(--white);
 	padding: 20px 0;
 }
 
@@ -178,7 +180,7 @@ span i {
 }
 .instruction i {
 	font-size: 0.6rem;
-	color: red;
+	color: var(--red);
 	margin-top: -5px;
 	display: block;
 }
@@ -193,4 +195,10 @@ footer {
 	padding: 10px 0;
 	margin-top: 20px;
 	background-color: var(--blue);
+}
+
+.notify {
+	color: var(--red);
+	margin-bottom: 10px;
+	display: none;
 }
