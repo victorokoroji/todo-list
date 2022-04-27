@@ -11,7 +11,7 @@
 	--white: #fff;
 	--gray: #817f7f;
 	--yellow: #ffff006b;
-  --blue: #003B74;
+	--blue: #003b74;
 }
 
 html {
@@ -22,26 +22,30 @@ html {
 body {
 	width: 100%;
 	background: url(../assets/images/download.jpeg) no-repeat;
-  background-size: cover;
+	background-size: cover;
 }
 
 header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 header h1 {
-  font-size: 48px;
-  color: var(--white);
-  text-shadow: -10px 10px 10px rgba(255, 252, 252, 0.5);
-  font-family: 'Times New Roman', Times, serif;
+	font-size: 48px;
+	color: var(--white);
+	text-shadow: -10px 10px 10px rgba(255, 252, 252, 0.5);
+	font-family: 'Times New Roman', Times, serif;
 }
 
 li {
 	list-style-type: none;
+}
+
+main {
+	margin-bottom: 90px;
 }
 
 .todolist-section {
@@ -55,7 +59,7 @@ li {
 	margin: auto;
 	box-shadow: 5px 5px 5px rgba(238, 232, 232, 0.3);
 	background-color: var(--white);
-  border-radius: 5px;
+	border-radius: 5px;
 }
 
 .title {
@@ -165,28 +169,28 @@ span i {
 }
 
 .instruction {
-  display: flex;
-  justify-content: center;
-  color: var(--white);
-  font-size: 0.9rem;
-  margin: 20px 0;
-  gap: 5px;
+	display: flex;
+	justify-content: center;
+	color: var(--white);
+	font-size: 0.9rem;
+	margin: 20px 0;
+	gap: 5px;
 }
 .instruction i {
-  font-size: 0.6rem;
-  color: red;
-  margin-top: -5px;
-  display: block;
+	font-size: 0.6rem;
+	color: red;
+	margin-top: -5px;
+	display: block;
 }
 
 footer {
-  display: flex;
-  justify-content: center;
-  color: var(--white);
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 10px 0;
-  margin-top: 20px;
-  background-color: var(--blue);
+	display: flex;
+	justify-content: center;
+	color: var(--white);
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 10px 0;
+	margin-top: 20px;
+	background-color: var(--blue);
 }
