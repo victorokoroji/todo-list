@@ -11,28 +11,34 @@
 		<header>
 			<h1>TODOs</h1>
 		</header>
-		<main class="main">
-			<section class="wrapper">
-				<div class="title">
-					<h3>Today's To Do</h3>
-					<span> <i class="fa fa-refresh"></i> </span>
-				</div>
-				<form class="form-element">
-					<input
-						type="text"
-						id="description"
-						name="description"
-						class="input"
-						placeholder="Add to your list..."
-						required
-					/>
-					<span class="enter"> <i class="fa fa-level-down down"></i></span>
-				</form>
-				<div class="todo-container"> </div>
-				<div class="clear">
-					<button type="button" class="button"> Clear all completed </button>
+		<main>
+			<section class="todolist-section">
+				<div class="wrapper">
+					<div class="title">
+						<h3>Today's To Do</h3>
+						<span class="refresh"> <i class="fa fa-refresh"></i> </span>
+					</div>
+					<form class="form-element">
+						<input
+							type="text"
+							id="description"
+							name="description"
+							class="input"
+							placeholder="Add to your list..."
+							required
+						/>
+						<span class="enter"> <i class="fa fa-level-down down"></i></span>
+					</form>
+					<div class="todo-container"> </div>
+					<div class="clear">
+						<button type="button" class="button"> Clear all completed </button>
+					</div>
 				</div>
 			</section>
+			<div class="instruction">
+				<i class="fas fa-asterisk"></i>
+				<p> When you add todos, you can click the three vertical dots to edit your todos</p>
+			</div>
 		</main>
 	</body>
 </html>

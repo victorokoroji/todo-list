@@ -43,7 +43,7 @@ li {
 	list-style-type: none;
 }
 
-main {
+.todolist-section {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -52,8 +52,9 @@ main {
 .wrapper {
 	width: 60%;
 	margin: auto;
-	box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.1), 5px 5px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: 5px 5px 5px rgba(238, 232, 232, 0.3);
 	background-color: var(--white);
+  border-radius: 5px;
 }
 
 .title {
@@ -160,4 +161,19 @@ span i {
 	width: 100%;
 	color: #817f7f;
 	padding: 20px 0;
+}
+
+.instruction {
+  display: flex;
+  justify-content: center;
+  color: var(--white);
+  font-size: 0.9rem;
+  margin: 20px 0;
+  gap: 5px;
+}
+.instruction i {
+  font-size: 0.6rem;
+  color: red;
+  margin-top: -5px;
+  display: block;
 }
